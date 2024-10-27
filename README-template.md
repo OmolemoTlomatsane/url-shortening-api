@@ -45,8 +45,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [url-shortening-api/images/Screenshot_27-10-2024_152715_shortly99.netlify.app.jpeg](https://your-solution-url.com)
+- Live Site URL: [https://shortly99.netlify.app/](https://your-live-site-url.com)
 
 ## My process
 
@@ -68,6 +68,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
 To see how you can add code snippets, see below:
+In this challenge I have learnt how to make different styling to a website. The challenge was quite challenging owing to distinguished and complex stylings and layout. I have learnt how to make different views for both mobile and desktop users. I have also learnt how to design a vibrant and user friendly website. The challenge allowed me to also learn new tailwind css properties like space-x, flex-col-reverse and to name but some.  
+
 
 ```html
 <h1>Some HTML code I'm proud of</h1>
@@ -102,8 +104,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Website - [Omolemo Tlomatsane](https://www.your-site.com)
+- Frontend Mentor - [@Zachary Schroder](https://www.frontendmentor.io/profile/yourusername)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
 
 **Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
