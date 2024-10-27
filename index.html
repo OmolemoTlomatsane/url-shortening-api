@@ -1,85 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <title>Shortly URL Shortening API Challenge</title>
+
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    /* Custom styles */
+    .shorten {
+      background-image: url('./images/bg-shorten-desktop.svg');
+      background-position:top left;
+      background-repeat: no-repeat;
+      background-color: hsl(257, 27%, 26%);
+      background-size:cover;
+    }
+
+    .cta-bg {
+      background-image: url('./images/bg-boost-desktop.svg');
+      background-color: hsl(257, 27%, 26%);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    /* Custom button styles */
+    .button {
+      background-color: hsl(180, 66%, 49%);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: hsl(180, 66%, 39%);
+    }
+
+    /* Mobile footer styles */
+    .footer-links {
+      text-align: center;
+    }
+
+    /* Center footer content in mobile view */
+    @media (max-width: 768px) {
+      .footer-links {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .footer-links {
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  Features
-  Pricing
-  Resources
-
-  Login
-  Sign Up
-
-  More than just shorter links
-
-  Build your brand’s recognition and get detailed insights 
-  on how your links are performing.
-
-  Get Started
+  <!-- Header -->
+  <header class="container mx-auto py-6 px-24">
+    <nav class="flex items-center justify-between relative">
+      <div class="flex items-center space-x-8">
+        <img src="./images/logo.svg" alt="Logo">
+        <div class="hidden md:flex space-x-6">
+          <a href="#" class="text-gray-600 hover:text-black">Features</a>
+          <a href="#" class="text-gray-600 hover:text-black">Pricing</a>
+          <a href="#" class="text-gray-600 hover:text-black">Resources</a>
+        </div>
+      </div>
+      <div class="hidden md:flex space-x-4">
+        <a href="#" class="text-gray-600 hover:text-black">Login</a>
+        <button class="button">Sign Up</button>
+      </div>
+      <button class="flex md:hidden w-8 h-auto" id="menu_btn">
+        <img src="./images/menu.png" alt="Menu Button" id="menu_btn_img">
+      </button>
+      <!-- Mobile Menu Links -->
+    <div class="hidden md:hidden fixed top-16 left-0 right-0 bottom-0 bg-gray-100 flex flex-col justify-center items-center z-10" id="mobile_menu_links">
+      <a href="#" class="text-gray-600 hover:text-black text-2xl mb-4">Features</a>
+      <a href="#" class="text-gray-600 hover:text-black text-2xl mb-4">Pricing</a>
+      <a href="#" class="text-gray-600 hover:text-black text-2xl mb-4">Resources</a>
+      <a href="#" class="text-gray-600 hover:text-black text-2xl mb-4">Login</a>
+      <button class="button text-2xl">Sign Up</button>
+    </div>
+    </nav>
+  </header>
   
-  Shorten a link here...
-
-  Shorten It!
-
-  Advanced Statistics
-
-  Track how your links are performing across the web with our 
-  advanced statistics dashboard.
-
-  Brand Recognition
-
-  Boost your brand recognition with each click. Generic links don’t 
-  mean a thing. Branded links help instil confidence in your content.
-
-  Detailed Records
-
-  Gain insights into who is clicking your links. Knowing when and where 
-  people engage with your content helps inform better decisions.
-
-  Fully Customizable
-
-  Improve brand awareness and content discoverability through customizable 
-  links, supercharging audience engagement.
-
-  Boost your links today
-
-  Get Started
-
-  Features
-
-  Link Shortening
-  Branded Links
-  Analytics
-
-  Resources
-
-  Blog
-  Developers
-  Support
-
-  Company
-
-  About
-  Our Team
-  Careers
-  Contact
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+
+  <!-- Hero Section -->
+  <section class="container mx-auto flex flex-col-reverse md:flex-row items-center py-12 px-24">
+    <div class="flex-1">
+      <h1 class="text-4xl md:text-6xl font-bold text-center md:text-left text-gray-900 leading-tight">
+        More than just shorter links
+      </h1>
+      <p class="text-lg text-center md:text-left text-gray-600 mt-4 mb-6">
+        Build your brand’s recognition and get detailed insights on how your links are performing.
+      </p>
+      <div class="text-center md:text-left">
+        <button class="button">Get Started</button>
+      </div>
+    </div>
+    <div class="flex-1 mt-8 md:mt-0">
+      <img src="./images/illustration-working.svg" alt="Working Illustration" class="mx-auto">
+    </div>
+  </section>
+
+  <section id="shorten" class="shorten container bg-cyan-600 py-6 px-4 rounded-lg -mb-48  relative z-10 mx-24 w-auto">
+    <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+      <input type="text" class="flex-1 p-3 rounded-md md:w-auto" id="shorten_input" placeholder="Shorten a link here...">
+      <button class="button" id="button">Shorten It!</button>
+    </div>
+  </section>
+  
+  <main class="bg-gray-100 mt-28">
+  <!-- Statistics Section -->
+  <section class="container mx-auto py-20 px-24">
+    <div class="text-center py-12">
+        <h2 class="text-3xl font-bold text-gray-900">Advanced Statistics</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+            Track how your links are performing across the web with our advanced statistics dashboard.
+        </p>
+    </div>
+    <div class="relative mt-12">
+        <!-- Background Line -->
+        <div class="absolute inset-0 flex items-center justify-between">
+            <div class="background-line"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <!-- Card 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between h-64 relative">
+                <div class="flex items-start justify-start mb-0 pl-4 -mt-14">
+                    <div class="bg-purple-600 p-3 rounded-full">
+                        <img src="./images/icon-brand-recognition.svg" alt="Brand Recognition Icon" class="h-16 w-16">
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-center">Brand Recognition</h3>
+                <p class="text-gray-600 text-center">
+                    Boost your brand recognition with each click. Branded links help instill confidence in your content.
+                </p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between h-64 mt-6 md:mt-16 relative">
+                <div class="flex items-start justify-start mb-0 pl-4 -mt-14">
+                    <div class="bg-purple-600 p-3 rounded-full">
+                        <img src="./images/icon-detailed-records.svg" alt="Detailed Records Icon" class="h-16 w-16">
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-center">Detailed Records</h3>
+                <p class="text-gray-600 text-center">
+                    Gain insights into who is clicking your links. Knowing when and where helps inform better decisions.
+                </p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between h-64 mt-6 md:mt-32 relative">
+                <div class="flex items-start justify-start mb-0 pl-4 -mt-14">
+                    <div class="bg-purple-600 p-3 rounded-full">
+                        <img src="./images/icon-fully-customizable.svg" alt="Fully Customizable Icon" class="h-16 w-16">
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-center">Fully Customizable</h3>
+                <p class="text-gray-600 text-center">
+                    Improve brand awareness and content discoverability through customizable links.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .background-line {
+        height: 18px; /* Height for desktop view */
+        background-color: hsl(180, 66%, 49%);
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .background-line {
+            height: 100%; /* Full height for mobile view */
+            width: 18px; /* Adjust width as necessary for vertical line */
+            transform: rotate(90deg); /* Rotate to make it vertical */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center it */
+        }
+    }
+</style>
+
+
+  <!-- Call to Action Section -->
+  <section class="cta-bg py-16 text-center text-white px-24">
+    <h2 class="text-3xl font-bold">Boost your links today</h2>
+    <button class="button mt-6">Get Started</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 px-24">
+    <div class="container mx-auto flex flex-col md:flex-row md:justify-between items-center">
+        <img src="./images/logo.svg" alt="Logo" class="mb-6 md:mb-0">
+        
+        <div class="footer-links text-center">
+            <h4 class="font-bold text-lg">Features</h4>
+            <ul class="mt-4">
+                <li><a href="#" class="text-gray-400 hover:text-white">Link Shortening</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">Branded Links</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">Analytics</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-links text-center">
+            <h4 class="font-bold text-lg">Resources</h4>
+            <ul class="mt-4">
+                <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">Developers</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">Support</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-links text-center">
+            <h4 class="font-bold text-lg">Company</h4>
+            <ul class="mt-4">
+                <li><a href="#" class="text-gray-400 hover:text-white">About</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">Our team</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">Contacts</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-links flex justify-center mt-6 md:mt-0">
+            <!-- Social Media Icons -->
+            <div class="flex space-x-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="fill-current text-white">
+                    <!-- Facebook Icon -->
+                    <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="fill-current text-white">
+                    <!-- Instagram Icon -->
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.069-4.85.069-3.204 0-3.584-.012-4.85-.069-3.252-.148-4.771-1.691-4.919-4.919C2.163 12.582 2.151 12.203 2.151 9c0-3.204.012-3.584.07-4.85C2.372 2.923 3.95 1.379 7.197 1.231 8.463 1.173 8.844 1.161 12 1.161zM12 5.847c-3.353 0-6.053 2.699-6.053 6.053s2.699 6.053 6.053 6.053 6.053-2.699 6.053-6.053-2.699-6.053-6.053-6.053zm0 10.878c-2.688 0-4.825-2.137-4.825-4.825 0-2.688 2.137-4.825 4.825-4.825 2.688 0 4.825 2.137 4.825 4.825 0 2.688-2.137 4.825-4.825 4.825zm4.68-10.716c-.689 0-1.225-.561-1.225-1.224 0-.687.561-1.225 1.225-1.225.688 0 1.224.561 1.224 1.225 0 .688-.561 1.224-1.224 1.224z" />
+                </svg>
+                    <!--Pinterest Icon-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="#FFF" d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="fill-current text-white">
+                    <!-- Twitter Icon -->
+                    <path d="M23.953 4.57c-.885.392-1.83.656-2.825.775 1.014-.609 1.794-1.577 2.163-2.724-.951.564-2.004.974-3.127 1.193-.895-.951-2.168-1.544-3.577-1.544-2.712 0-4.911 2.199-4.911 4.91 0 .385.045.762.126 1.124-4.084-.205-7.71-2.162-10.141-5.144-.423.726-.666 1.566-.666 2.465 0 1.698.866 3.192 2.179 4.073-.803-.025-1.56-.246-2.228-.615v.061c0 2.37 1.686 4.343 3.928 4.788-.411.112-.844.171-1.293.171-.316 0-.623-.031-.925-.088.623 1.949 2.434 3.37 4.585 3.41-1.675 1.314-3.784 2.094-6.06 2.094-.393 0-.779-.023-1.162-.067 2.152 1.38 4.71 2.177 7.466 2.177 8.947 0 13.846-7.404 13.846-13.801 0-.211-.004-.422-.013-.632.95-.688 1.77-1.55 2.41-2.535z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="attribution mt-6 text-center">
+        Challenge by <a href="https://www.frontendmentor.io/challenges" target="_blank">Frontend Mentor</a>. Coded by <a href="https://github.com/your-profile" target="_blank">Your Name</a>.
+    </div>
+</footer>
+</main>
+<script>
+  menu_btn = document.getElementById('menu_btn');
+  mobile_menu_links = document.getElementById('mobile_menu_links');
+  menu_btn_img = document.getElementById('menu_btn_img');
+
+  menu_btn.addEventListener('click',()=>{
+    mobile_menu_links.classList.toggle('hidden');
+    if (mobile_menu_links.classList.contains('hidden')){
+      menu_btn_img.src = './images/menu.png'
+    }
+    else{
+      menu_btn_img.src = './images/close.png'
+    }
+  })
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const shortenButton = document.getElementById("button");
+    const urlInput = document.getElementById("shorten_input");
+    const container = document.createElement("div");
+    container.id = "shortenedLinksContainer";
+    document.getElementById("shorten").appendChild(container);
+
+    // Load the last shortened link from localStorage on page load
+    const savedLink = localStorage.getItem("lastShortenedLink");
+    if (savedLink) {
+      displayShortenedLink(savedLink);
+    }
+
+    shortenButton.addEventListener("click", async () => {
+      const url = urlInput.value.trim();
+      container.innerHTML = ''; // Clear previous content
+
+      if (!url) {
+        alert("Please enter a URL to shorten.");
+        return;
+      }
+
+      try {
+        const response = await fetch("https://cors-anywhere.herokuapp.com/https://cleanuri.com/api/v1/shorten", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `url=${encodeURIComponent(url)}`
+        });
+
+        const data = await response.json();
+        if (data.result_url) {
+          displayShortenedLink(data.result_url);
+          localStorage.setItem("lastShortenedLink", data.result_url); // Save to localStorage
+        } else {
+          container.innerHTML = `<p class="text-red-600">Error: Unable to shorten the URL.</p>`;
+        }
+      } catch (error) {
+        console.error("Shortening failed", error);
+        container.innerHTML = `<p class="text-red-600">Error: Unable to shorten the URL. Please try again later.</p>`;
+      }
+    });
+  });
+
+  // Function to display shortened link with Copy button
+  function displayShortenedLink(shortenedUrl) {
+    const container = document.getElementById("shortenedLinksContainer");
+    container.innerHTML = `
+      <div class="shortened-link mt-4 p-2 border border-gray-300 rounded text-center">
+        <span>${shortenedUrl}</span>
+        <button class="button ml-2" onclick="copyToClipboard('${shortenedUrl}')">Copy</button>
+      </div>
+    `;
+  }
+
+  // Copy link to clipboard
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Copied to clipboard!");
+    });
+  }
+</script>
+
+
 </body>
 </html>
